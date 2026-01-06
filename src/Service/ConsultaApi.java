@@ -10,7 +10,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class ConsultaApi {
-    private static final String API_KEY = "0d3a251360646a3c0c5cbaf5";
+    private static final String API_KEY = System.getenv("EXCHANGE_RATE_API_KEY");;
     private static final String BASE_URL = "https://v6.exchangerate-api.com/v6/";
 
     private HttpClient client;
@@ -19,6 +19,11 @@ public class ConsultaApi {
     public ConsultaApi() {
         this.client = HttpClient.newHttpClient();
         this.gson = new Gson();
+        if (API_KEY == null || API_KEY.isEmpty()) {
+            throw new IllegalStateException(
+                    "API Key no configurada. Por favor configura la variable de entorno EXCHANGE_RATE_API_KEY"
+            );
+        }
     }
 
     /**

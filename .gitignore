@@ -27,3 +27,31 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+# Archivos compilados
+*.class
+*.jar
+*.war
+*.ear
+
+# Directorios de compilación
+/target/
+/build/
+/out/
+/bin/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Variables de entorno (IMPORTANTE)
+.env
+config.properties
+api-key.txt
+
+# Logs
+*.log
